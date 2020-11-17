@@ -2,18 +2,16 @@
 
 ## users テーブル
 
-| Column           | Type    | Options     |
-| ---------------- | ------- | ------------ |
-| email            | string  | null: false  |
-| password         | string  | null: false  |
-| nickname         | string  | unique: true |
-| last-name        | string  | null: false  |
-| first-name       | string  | null: false  |
-| last-name-kana   | string  | null: false  |
-| first-name-kana  | string  | null: false  |
-| birth_date_1i    | integer | null: false  |
-| birth_date_2i    | integer | null: false  |
-| birth_date_3i    | integer | null: false  |
+| Column             | Type    | Options     |
+| ------------------ | ------- | ------------ |
+| email              | string  | null: false  |
+| encrypted_password | string  | null: false  |
+| nickname           | string  | unique: true |
+| last_name          | string  | null: false  |
+| first_name         | string  | null: false  |
+| last_name_kana     | string  | null: false  |
+| first_name_kana    | string  | null: false  |
+| birth_date         | date    | null: false  |
 
 ### Association
 
@@ -26,28 +24,25 @@
 | ---------------------- | ---------- | ----------------- |
 | name                   | text       | null: false       |
 | info                   | text       | null: false       |
-| prise                  | text       | null: false       |
+| price                  | text       | null: false       |
 | user                   | references | foreign_key: true |
-| category_id            |  |  |
-| sales-status_id        |  |  |
-| prefecture_id          |  |  |
-| shipping-fee-status_id |  |  |
-| scheduled-delivery_id  |  |  |
+| category_id            | integer    | null: false       |
+| sales-status_id        | integer    | null: false       |
+| prefecture_id          | integer    | null: false       |
+| shipping-fee-status_id | integer    | null: false       |
+| scheduled-delivery_id  | integer    | null: false       |
 
 ### Association
 
 - belongs_to :user
-- has_one :purchases
+- has_one :purchase
 
 ## purchases テーブル
 
-| Column         | Type       | Options           |
-| -------------- | ---------- | ----------------- |
-| card-number    | text       | null: false       |
-| card-exp-month | text       | null: false       |
-| card-exp-year  | text       | null: false       |
-| card-cvc       | text       | null: false       |
-| user           | references | foreign_key: true |
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| item   | references | foreign_key: true |
+| user   | references | foreign_key: true |
 
 ### Association
 
@@ -57,14 +52,14 @@
 
 ## shipping-addresses テーブル
 
-| Column         | Type | Options           |
-| -------------- | ---- | ----------------- |
-| postal-code    | text | null: false       |
-| prefecture_id  | text | null: false       |
-| city           | text | null: false       |
-| addresses      | text | null: false       |
-| building       | text | foreign_key: true |
-| phone-number   | text | foreign_key: true |
+| Column         | Type    | Options     |
+| -------------- | ------- | ----------- |
+| postal-code    | string  | null: false |
+| prefecture_id  | integer | null: false |
+| city           | string  | null: false |
+| addresses      | string  | null: false |
+| building       | string  | null: false |
+| phone-number   | string  | null: false |
 
 ### Association
 
