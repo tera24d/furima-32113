@@ -24,7 +24,7 @@
 | ---------------------- | ---------- | ----------------- |
 | name                   | text       | null: false       |
 | info                   | text       | null: false       |
-| price                  | text       | null: false       |
+| price                  | integer    | null: false       |
 | user                   | references | foreign_key: true |
 | category_id            | integer    | null: false       |
 | sales-status_id        | integer    | null: false       |
@@ -52,14 +52,15 @@
 
 ## shipping-addresses テーブル
 
-| Column         | Type    | Options     |
-| -------------- | ------- | ----------- |
-| postal-code    | string  | null: false |
-| prefecture_id  | integer | null: false |
-| city           | string  | null: false |
-| addresses      | string  | null: false |
-| building       | string  | null: false |
-| phone-number   | string  | null: false |
+| Column         | Type       | Options           |
+| -------------- | ---------- | ----------------- |
+| postal-code    | string     | null: false       |
+| prefecture_id  | integer    | null: false       |
+| city           | string     | null: false       |
+| addresses      | string     | null: false       |
+| building       | string     | null: false       |
+| phone-number   | string     | null: false       |
+| purchase       | references | foreign_key: true |
 
 ### Association
 
