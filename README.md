@@ -22,7 +22,7 @@
 
 | Column                 | Type       | Options           |
 | ---------------------- | ---------- | ----------------- |
-| name                   | text       | null: false       |
+| name                   | string     | null: false       |
 | info                   | text       | null: false       |
 | price                  | integer    | null: false       |
 | user                   | references | foreign_key: true |
@@ -58,7 +58,7 @@
 | prefecture_id  | integer    | null: false       |
 | city           | string     | null: false       |
 | addresses      | string     | null: false       |
-| building       | string     | null: false       |
+| building       | string     |                   |
 | phone-number   | string     | null: false       |
 | purchase       | references | foreign_key: true |
 
