@@ -6,4 +6,12 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_fee_status
   belongs_to :scheduled_delivery
+
+  validates :name, :info, :price, :image, presence: true
+  validates :category_id, numericality: { other_than: 1 } 
+  validates :sales_status_id, numericality: { other_than: 1 } 
+  validates :prefecture_id, numericality: { other_than: 1 } 
+  validates :shipping_fee_status_id, numericality: { other_than: 1 } 
+  validates :schedule_delivery_id, numericality: { other_than: 1 } 
+
 end
