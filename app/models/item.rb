@@ -12,12 +12,12 @@ class Item < ApplicationRecord
     validates :image
     validates :name, length: { maximum: 40 }
     validates :info, length: { maximum: 1000 }
-    validates :price, numericality: { greater_than_or_equal_to: 300}
-    validates :price, numericality: { less_than_or_equal_to: 9999999}
-  
-    with_options numericality: { other_than: 0, message: 'select'} do
+    validates :price, numericality: { greater_than_or_equal_to: 300 }
+    validates :price, numericality: { less_than_or_equal_to: 9_999_999 }
+
+    with_options numericality: { other_than: 0, message: 'select' } do
       validates :category_id
-      validates :sales_status_id 
+      validates :sales_status_id
       validates :prefecture_id
       validates :shipping_fee_status_id
       validates :scheduled_delivery_id
