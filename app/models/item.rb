@@ -22,6 +22,5 @@ class Item < ApplicationRecord
       validates :shipping_fee_status_id
       validates :scheduled_delivery_id
     end
-    # VALID_NUMBER_REGEX =
   end
 end
