@@ -9,8 +9,6 @@ class Item < ApplicationRecord
   belongs_to :shipping_fee_status
   belongs_to :scheduled_delivery
 
-  VALID_PRICE_REGEX = /\A[0-9]+\z/
-
   with_options presence: true do
     validates :image
     validates :name, length: { maximum: 40 }
@@ -25,6 +23,6 @@ class Item < ApplicationRecord
       validates :scheduled_delivery_id
     end
   end
-  validates :price, numericality: { with: VALID_PRICE_REGEX, message: 'Half-width number' }
+  validates :price, numericality: { with: /\A[0-9]+\z/, message: 'Half-width number' }
 
 end

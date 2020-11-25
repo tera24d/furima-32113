@@ -81,7 +81,7 @@ RSpec.describe Item, type: :model do
         end
 
         it '販売価格は半角数字のみ保存可能であること' do
-          @item.price = '１０００'
+          @item.price = '１２３４'
           @item.valid?
           expect(@item.errors.full_messages).to include('Price Half-width number')
         end
