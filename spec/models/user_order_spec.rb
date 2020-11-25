@@ -21,9 +21,9 @@ RSpec.describe UserOrder, type: :model do
         end
 
         it '郵便番号にはハイフンが必要であること（123-4567となる）' do
-          @user_order.postal_code = 1234567
+          @user_order.postal_code = 1_234_567
           @user_order.valid?
-          expect(@user_order.errors.full_messages).to include("Postal code Input correctly")
+          expect(@user_order.errors.full_messages).to include('Postal code Input correctly')
         end
 
         it '郵便番号が空では購入できないこと' do
@@ -35,7 +35,7 @@ RSpec.describe UserOrder, type: :model do
         it '都道府県が空では購入できないこと' do
           @user_order.prefecture_id = 0
           @user_order.valid?
-          expect(@user_order.errors.full_messages).to include("Prefecture select")
+          expect(@user_order.errors.full_messages).to include('Prefecture select')
         end
 
         it '市区町村が空では購入できないこと' do
@@ -59,7 +59,7 @@ RSpec.describe UserOrder, type: :model do
         it '電話番号にはハイフンは不要で、11桁以内であること' do
           @user_order.phone_number = '090-1234-5678'
           @user_order.valid?
-          expect(@user_order.errors.full_messages).to include("Phone number Input only number", "Phone number is too long (maximum is 11 characters)")
+          expect(@user_order.errors.full_messages).to include('Phone number Input only number', 'Phone number is too long (maximum is 11 characters)')
         end
       end
     end
