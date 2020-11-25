@@ -3,12 +3,12 @@ class UserOrder
   attr_accessor :postal_code, :prefecture_id, :city, :addresses, :building, :phone_number, :item_id, :user_id, :token
 
   with_options presence: true do
-    validates :postal_code, format: { with: /\A[0-9]{3}[-][0-9]{4}\z/, message: "Input correctly" }
-    validates :city, :addresses
     validates :token
-    validates :phone_number, numericality: { only_integer: true, message: 'Input only number'}, length: { maximum: 11, message: '' } 
+    validates :postal_code, format: { with: /\A[0-9]{3}[-][0-9]{4}\z/, message: "Input correctly" }
+    validates :prefecture_id, numericality: { other_than: 0, message: 'select' }
+    validates :city, :addresses
+    validates :phone_number, numericality: { only_integer: true, message: 'Input only number'}, length: { maximum: 11} 
   end
-  validates :prefecture_id, numericality: { other_than: 0, message: 'select' }
 
 
   def save

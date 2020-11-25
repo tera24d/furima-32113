@@ -40,4 +40,5 @@ class OrdersController < ApplicationController
     unless current_user.id == @item.user.id || @item.purchaser.present?
       redirect_to action: :index 
     end
+  end
 end
