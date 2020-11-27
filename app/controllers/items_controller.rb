@@ -24,9 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.purchaser.present?
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.purchaser.present?
   end
 
   def update
